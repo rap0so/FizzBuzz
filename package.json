@@ -1,0 +1,56 @@
+{
+  "name": "fizzbuzz",
+  "version": "1.0.0",
+  "description": "My fizzbuzz on TDD",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src/*.js",
+    "prepush": "npm run lint",
+    "test": "mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rap0so/fizzbuzz.git"
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "npm test"
+    }
+  },
+  "author": "William Godoy <william.s.godoy53@gmail.com> (https://github.com/rap0so/fizzbuzz/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rap0so/fizzbuzz/issues"
+  },
+  "homepage": "https://github.com/rap0so/fizzbuzz#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.3.2",
+    "babel-register": "^6.24.0",
+    "chai": "^3.5.0",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "husky": "^4.2.3",
+    "mocha": "^3.2.0",
+    "nyc": "^15.0.0"
+  }
+}
